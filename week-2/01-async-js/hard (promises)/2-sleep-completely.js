@@ -5,6 +5,17 @@
  */
 
 function sleep(milliseconds) {
+  const start = Date.now();
+  let end;
+  do {
+    end = Date.now();
+  } while (end - start <= milliseconds);
+  return new Promise((resolve) => {
+    resolve();
+  });
 }
+
+sleep(2345);
+console.log("hi");
 
 module.exports = sleep;
